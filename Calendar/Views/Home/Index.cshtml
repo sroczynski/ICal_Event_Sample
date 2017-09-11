@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home";
+    var fileType = Enum.GetValues(typeof(Calendar.Data.FileTypeEnum)).Cast<Calendar.Data.FileTypeEnum>().Select(v => new SelectListItem
+    {
+        Text = v.ToString(),
+        Value = ((int)v).ToString()
+    }).ToList();
+}
+
+<h2>Calendário</h2>
+<hr />
+@using (Ajax.BeginForm("Calendar", new AjaxOptions() { HttpMethod = "POST" }))
+{
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="form-group">
+                <label for="Title">Tipo de Arquivo:</label>
+                @Html.DropDownList("FileType", fileType, new { @class="form-control" })
+            </div>
+            <div class="form-group">
+                <label for="Title">Título:</label>
+                <input maxlength="100" required type="text" class="form-control" name="Title" />
+            </div>
+
+            <div class="form-group">
+                <label for="Local">Local:</label>
+                <input maxlength="250" required type="text" class="form-control" name="Local" />
+            </div>
+
+            <div class="form-group">
+                <label for="Description">Descrição:</label>
+                <textarea rows="3" maxlength="500" class="form-control" name="Description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker1">
+                    <input type="text" required class="form-control" name="Date" />
+
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({ locale: 'pt-br' });
+        });
+    </script>
+}
