@@ -59,8 +59,6 @@ namespace Calendar.Utils
 
             var calendar = new Ical.Net.Calendar();
             calendar.Events.Add(evento);
-            calendar.Events.Add(evento);
-
             
             var serializer = new CalendarSerializer(new SerializationContext());
             var serializedCalendar = serializer.SerializeToString(calendar);

@@ -32,3 +32,4 @@ C:\Workspace\Cal\Calendar\bin\Newtonsoft.Json.xml
 C:\Workspace\Cal\Calendar\bin\Antlr3.Runtime.pdb
 C:\Workspace\Cal\Calendar\obj\Debug\Calendar.dll
 C:\Workspace\Cal\Calendar\obj\Debug\Calendar.pdb
+C:\Workspace\Cal\Calendar\obj\Debug\Calendar.csprojResolveAssemblyReference.cache
